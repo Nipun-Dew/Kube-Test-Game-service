@@ -19,13 +19,13 @@ public class GamesController {
         this.gameService = gameService;
     }
 
-    @GetMapping(value = "/game")
+    @GetMapping
     public ResponseEntity<List<GameData>> getGames(@RequestParam(required = false) String title,
                                                    @RequestParam(required = false) String category) {
         return gameService.getGames(title, category);
     }
 
-    @PostMapping(value = "/game")
+    @PostMapping
     public ResponseEntity<GameEB> saveGame(@RequestBody GameData gameData) {
         return gameService.saveOrUpdateGame(gameData);
     }
